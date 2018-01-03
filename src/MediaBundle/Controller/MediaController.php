@@ -25,12 +25,10 @@ class MediaController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $media = $em->getRepository('MediaBundle:Media')->findAll();
-
+        $user = $this->getUser();
         return $this->render('MediaBundle:admin:media/index.html.twig', array(
-            'media' => $media,
-        ));
+            'media' => $media,'current_user' => $user));
     }
 
     /**
@@ -46,6 +44,19 @@ class MediaController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // $file stores the uploaded miniature File
+            $file = $medium->getPath();
+            // Generate a unique name for the file before saving it
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            // Move the file to the directory where brochures are stored
+            $file->move(
+                $this->getParameter('medias_directory'),
+                $fileName
+            );
+            // Update the 'brochure' property to store the PDF file name
+            // instead of its contents
+            $medium->setPath($fileName);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($medium);
             $em->flush();
@@ -88,6 +99,19 @@ class MediaController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            // $file stores the uploaded miniature File
+            $file = $medium->getPath();
+            // Generate a unique name for the file before saving it
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            // Move the file to the directory where brochures are stored
+            $file->move(
+                $this->getParameter('medias_directory'),
+                $fileName
+            );
+            // Update the 'brochure' property to store the PDF file name
+            // instead of its contents
+            $medium->setPath($fileName);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($medium);
             $em->flush();

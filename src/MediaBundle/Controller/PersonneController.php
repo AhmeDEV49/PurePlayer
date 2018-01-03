@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use MediaBundle\Entity\Personne;
 use MediaBundle\Form\PersonneType;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Personne controller.
@@ -27,7 +28,6 @@ class PersonneController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $personnes = $em->getRepository('MediaBundle:Personne')->findAll();
-
         return $this->render('MediaBundle:admin:personne/index.html.twig', array(
             'personnes' => $personnes,
         ));

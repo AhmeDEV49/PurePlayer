@@ -17,6 +17,14 @@
             <th>Extension</th>
             <td>{{ medium.extension }}</td>
         </tr>
+        <tr>
+            <th>Actions</th>
+            <td>
+                <p>Cliquer sur l'image pour agrandir.</p>
+                    <img  class="img-fluid"   src="{{ asset('uploads/medias/' ~ medium.path) }}" alt="{{  medium.name }}">
+                </a>
+            </td>
+        </tr>
         </tbody>
     </table>
     <p>

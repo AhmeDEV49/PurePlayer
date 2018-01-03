@@ -29,11 +29,15 @@
                     Type des médias</a></li>
             <li><a href="{{ path('genre_index') }}"><i class="fa fa-tags" aria-hidden="true" style="color:white;"></i>
                     Genres</a></li>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out" aria-hidden="true" style="color:white;"></i> Se déconnecter</a></li>
+            {%  else %}
+                <li><a href="{{ path('fos_user_security_login') }}"><i class="fa fa-sign-in" aria-hidden="true" style="color:white;"></i> Connexion</a></li>
+            {% endif %}
         </ul>
     </div>
 </nav>
 <div class="container-fluid">
-
     {% block body %}{% endblock %}
 </div>
 {% block javascripts %}{% endblock %}

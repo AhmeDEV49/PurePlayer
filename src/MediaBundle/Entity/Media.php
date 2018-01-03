@@ -3,6 +3,8 @@
 namespace MediaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Media
@@ -27,6 +29,30 @@ class Media
      * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
     private $name;
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Please, upload the product media as PNG/JPG/GIF file.")
+     * @Assert\File(mimeTypes = {"image/jpeg", "image/gif", "image/png"})
+     */
+    private $path;
+
+    /**
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    /**
+     * @param string $path
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+    }
 
     /**
      * @var string

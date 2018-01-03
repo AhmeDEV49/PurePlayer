@@ -12,9 +12,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/doctrine-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/doctrine-cache-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/orm" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/friendsofsymfony/user-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/incenteev/composer-parameter-handler" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ircmaxell/password-compat" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/jdorn/sql-formatter" />
@@ -28,6 +28,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/monolog-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/phpunit-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-apcu" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-icu" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php54" />
@@ -38,6 +39,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/security-acl" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/swiftmailer-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/symfony" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/twig/extensions" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/twig/twig" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -54,9 +56,9 @@
           <root url="file://$MODULE_DIR$/vendor/doctrine/doctrine-bundle" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/doctrine-cache-bundle" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
-          <root url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/orm" />
+          <root url="file://$MODULE_DIR$/vendor/friendsofsymfony/user-bundle" />
           <root url="file://$MODULE_DIR$/vendor/incenteev/composer-parameter-handler" />
           <root url="file://$MODULE_DIR$/vendor/ircmaxell/password-compat" />
           <root url="file://$MODULE_DIR$/vendor/jdorn/sql-formatter" />
@@ -70,6 +72,7 @@
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
           <root url="file://$MODULE_DIR$/vendor/symfony/monolog-bundle" />
           <root url="file://$MODULE_DIR$/vendor/symfony/phpunit-bridge" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-apcu" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-icu" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php54" />
@@ -80,6 +83,7 @@
           <root url="file://$MODULE_DIR$/vendor/symfony/security-acl" />
           <root url="file://$MODULE_DIR$/vendor/symfony/swiftmailer-bundle" />
           <root url="file://$MODULE_DIR$/vendor/symfony/symfony" />
+          <root url="file://$MODULE_DIR$/vendor/twig/extensions" />
           <root url="file://$MODULE_DIR$/vendor/twig/twig" />
         </CLASSES>
         <SOURCES>
@@ -92,9 +96,9 @@
           <root url="file://$MODULE_DIR$/vendor/doctrine/doctrine-bundle" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/doctrine-cache-bundle" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
-          <root url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/orm" />
+          <root url="file://$MODULE_DIR$/vendor/friendsofsymfony/user-bundle" />
           <root url="file://$MODULE_DIR$/vendor/incenteev/composer-parameter-handler" />
           <root url="file://$MODULE_DIR$/vendor/ircmaxell/password-compat" />
           <root url="file://$MODULE_DIR$/vendor/jdorn/sql-formatter" />
@@ -108,6 +112,7 @@
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
           <root url="file://$MODULE_DIR$/vendor/symfony/monolog-bundle" />
           <root url="file://$MODULE_DIR$/vendor/symfony/phpunit-bridge" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-apcu" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-icu" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php54" />
@@ -118,6 +123,7 @@
           <root url="file://$MODULE_DIR$/vendor/symfony/security-acl" />
           <root url="file://$MODULE_DIR$/vendor/symfony/swiftmailer-bundle" />
           <root url="file://$MODULE_DIR$/vendor/symfony/symfony" />
+          <root url="file://$MODULE_DIR$/vendor/twig/extensions" />
           <root url="file://$MODULE_DIR$/vendor/twig/twig" />
         </SOURCES>
       </library>

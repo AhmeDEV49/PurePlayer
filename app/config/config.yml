@@ -7,7 +7,8 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
+    medias_directory: '%kernel.root_dir%/../web/uploads/medias'
 
 framework:
     #esi:             ~
@@ -31,6 +32,7 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    translator:      { fallback: [fr] }
 
 # Twig Configuration
 twig:
@@ -70,3 +72,11 @@ swiftmailer:
 twig:
     form:
         resources: ['bootstrap_3_layout.html.twig']
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    user_class: MediaBundle\Entity\Personne
+    from_email:
+        address: "%mailer_user%"
+        sender_name: "%mailer_user%"
