@@ -1,0 +1,32 @@
+{%  extends "MediaBundle:Default:base.html.twig" %}
+
+{% block body %}
+    <h1 align="center">Liste des genres</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for genre in genres %}
+            <tr>
+                <td><a href="{{ path('genre_show', { 'id': genre.id }) }}">{{ genre.id }}</a></td>
+                <td>{{ genre.name }}</td>
+                <td>
+                    <p>
+                            <a href="{{ path('genre_show', { 'id': genre.id }) }}" class="btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i> Afficher</a>
+                    </p>
+                    <p>
+                            <a href="{{ path('genre_edit', { 'id': genre.id }) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Editer</a>
+                    </p>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('genre_new') }}" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+                 Creer un nouveau genre</a>
+{% endblock %}

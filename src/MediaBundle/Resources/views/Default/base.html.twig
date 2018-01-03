@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/united/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/application.css') }}" />
+    <title>{% block title %} - PurePlayer{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{{ path('root') }}"><i class="fa fa-pied-piper-pp" aria-hidden="true"></i>
+                PurePlayer</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="{{ path('root') }}"><i class="fa fa-home" aria-hidden="true" style="color:white;"></i>
+                    Home</a></li>
+            <li><a href="{{ path('personne_index') }}"><i class="fa fa-users" aria-hidden="true" style="color:white;"></i>
+                    Personnes</a></li>
+            <li><a href="{{ path('media_index') }}"><i class="fa fa-film" aria-hidden="true" style="color:white;"></i>
+                    Médias</a></li>
+            <li><a href="{{ path('typemedia_index') }}"><i class="fa fa-file-audio-o" aria-hidden="true" style="color:white;"></i>
+                    Type des médias</a></li>
+            <li><a href="{{ path('genre_index') }}"><i class="fa fa-tags" aria-hidden="true" style="color:white;"></i>
+                    Genres</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid">
+
+    {% block body %}{% endblock %}
+</div>
+{% block javascripts %}{% endblock %}
+</body>
+</html>

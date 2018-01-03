@@ -1,0 +1,31 @@
+{%  extends "MediaBundle:Default:base.html.twig" %}
+{% block body %}
+    <h1 align="center">Liste des médias</h1>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Extension</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for medium in media %}
+            <tr>
+                <td><a href="{{ path('media_show', { 'id': medium.id }) }}">{{ medium.id }}</a></td>
+                <td>{{ medium.name }}</td>
+                <td>{{ medium.extension }}</td>
+                <td>
+                    <a href="{{ path('media_show', { 'id': medium.id }) }}" class="btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i>
+                         Afficher</a>
+                    <a href="{{ path('media_edit', { 'id': medium.id }) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i>
+                         Editer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('media_new') }}" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+        Créer un nouveau media</a>
+{% endblock %}

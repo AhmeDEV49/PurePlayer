@@ -1,0 +1,31 @@
+{%  extends "MediaBundle:Default:base.html.twig" %}
+
+{% block body %}
+    <h1 align="center">Liste des types de médias</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for typeMedia in typeMedia %}
+            <tr>
+                <td><a href="{{ path('typemedia_show', { 'id': typeMedia.id }) }}">{{ typeMedia.id }}</a></td>
+                <td>{{ typeMedia.name }}</td>
+                <td>
+                    <p>
+                            <a href="{{ path('typemedia_show', { 'id': typeMedia.id }) }}" class="btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i> Afficher</a>
+                    </p>
+                            <a href="{{ path('typemedia_edit', { 'id': typeMedia.id }) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Editer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+            <a href="{{ path('typemedia_new') }}" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+                 Créer un nouveau type de média</a>
+{% endblock %}

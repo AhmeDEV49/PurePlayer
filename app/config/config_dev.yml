@@ -33,3 +33,7 @@ monolog:
 
 #swiftmailer:
 #    delivery_address: me@example.com
+
+twig:
+    form:
+        resources: ['bootstrap_3_layout.html.twig']

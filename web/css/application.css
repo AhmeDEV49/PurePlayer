@@ -1,0 +1,24 @@
+.btn-primary {
+    background-color: #8064A2;
+    border-color: #8064A2;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #9b59b6;
+    border-color:#9b59b6;
+}
+
+.btn-warning {
+    background-color:#9b59b6;
+    border-color:#9b59b6;
+}
+.btn-danger {
+    background-color:#e74c3c;
+    border-color:#e74c3c;
+}
+
+a {
+    color:#2c3e50;
+}

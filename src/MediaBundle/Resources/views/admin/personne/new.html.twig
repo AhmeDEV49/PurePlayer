@@ -1,0 +1,14 @@
+{%  extends "MediaBundle:Default:base.html.twig" %}
+
+{% block body %}
+    <h1>Création d'une personne</h1>
+
+    {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+        <input type="submit" class="btn btn-primary" value="Enregistrer" />
+    {{ form_end(form) }}
+<hr>
+            <a href="{{ path('personne_index') }}"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                 Retourner à la liste des personnes</a>
+{% endblock %}

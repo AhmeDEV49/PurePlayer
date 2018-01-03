@@ -1,0 +1,22 @@
+{%  extends "MediaBundle:Default:base.html.twig" %}
+
+{% block body %}
+    <h1>Mise à jour du média</h1>
+    {{ form_start(edit_form) }}
+    {{ form_widget(edit_form) }}
+    <p>
+        <i class="fa fa-refresh" aria-hidden="true"></i>
+        <input type="submit" value="Mettre à jour" class="btn btn-primary" />
+    {{ form_end(edit_form) }}
+    {{ form_start(delete_form) }}
+    </p>
+    <br>
+    <p>
+    <i class="fa fa-trash-o" aria-hidden="true"></i>
+    <input type="submit" value="Supprimer" class="btn btn-danger">
+    {{ form_end(delete_form) }}
+    </p>
+    <hr>
+        <a href="{{ path('media_index') }}"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+            Retourner à la liste des médias</a>
+{% endblock %}

@@ -1,0 +1,60 @@
+<?php
+
+namespace MediaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Media
+ *
+ * @ORM\Table(name="media", indexes={@ORM\Index(name="k_genre", columns={"genre"}), @ORM\Index(name="k_createur", columns={"createur"})})
+ * @ORM\Entity
+ */
+class Media
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="extension", type="string", length=3, nullable=false)
+     */
+    private $extension;
+
+    /**
+     * @var \Personne
+     *
+     * @ORM\ManyToOne(targetEntity="Personne")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="createur", referencedColumnName="id")
+     * })
+     */
+    private $createur;
+
+    /**
+     * @var \Genre
+     *
+     * @ORM\ManyToOne(targetEntity="Genre")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="genre", referencedColumnName="id")
+     * })
+     */
+    private $genre;
+
+
+}
+
