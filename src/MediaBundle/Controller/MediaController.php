@@ -44,18 +44,29 @@ class MediaController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // $file stores the uploaded miniature File
-            $file = $medium->getPath();
-            // Generate a unique name for the file before saving it
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            // Move the file to the directory where brochures are stored
-            $file->move(
-                $this->getParameter('medias_directory'),
+            //$media_content store the uploaded file
+            $media_content = $medium->getFilePath();
+            // genere un nom avec MD5
+            $fileName =  md5(uniqid()).'.'.$media_content->guessExtension();
+            // on stock le fichier
+            $media_content->move($this->getParameter('media_files_directory'),
                 $fileName
             );
-            // Update the 'brochure' property to store the PDF file name
+            // on met le nom du fichier en BDD
+            $medium->setFilePath($fileName);
+
+            // $file stores the uploaded miniature File
+            $file_miniature = $medium->getPath();
+            // Generate a unique name for the file before saving it
+            $MiniaturefileName = md5(uniqid()).'.'.$file_miniature->guessExtension();
+            // Move the file to the directory where brochures are stored
+            $file_miniature->move(
+                $this->getParameter('medias_directory'),
+                $MiniaturefileName
+            );
+            // store file name in bdd
             // instead of its contents
-            $medium->setPath($fileName);
+            $medium->setPath($MiniaturefileName);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($medium);
@@ -99,18 +110,29 @@ class MediaController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            // $file stores the uploaded miniature File
-            $file = $medium->getPath();
-            // Generate a unique name for the file before saving it
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            // Move the file to the directory where brochures are stored
-            $file->move(
-                $this->getParameter('medias_directory'),
+            //$media_content store the uploaded file
+            $media_content = $medium->getFilePath();
+            // genere un nom avec MD5
+            $fileName =  md5(uniqid()).'.'.$media_content->guessExtension();
+            // on stock le fichier
+            $media_content->move($this->getParameter('media_files_directory'),
                 $fileName
             );
-            // Update the 'brochure' property to store the PDF file name
+            // on met le nom du fichier en BDD
+            $medium->setFilePath($fileName);
+            
+            // $file stores the uploaded miniature File
+            $file_miniature = $medium->getPath();
+            // Generate a unique name for the file before saving it
+            $MiniaturefileName = md5(uniqid()).'.'.$file_miniature->guessExtension();
+            // Move the file to the directory where brochures are stored
+            $file_miniature->move(
+                $this->getParameter('medias_directory'),
+                $MiniaturefileName
+            );
+            // store file name in bdd
             // instead of its contents
-            $medium->setPath($fileName);
+            $medium->setPath($MiniaturefileName);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($medium);

@@ -21,6 +21,7 @@ class MediaType extends AbstractType
             ->add('createur')
             ->add('genre')
             ->add('path', FileType::class, array('label' => 'Vignette du Média (PNG/JPG/GIF file)','data_class' => null))
+            ->add('file_path', FileType::class, array('label' => 'Média (MP4/MP3/AVI file)','data_class' => null))
         ;
     }
     

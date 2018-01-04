@@ -9,6 +9,7 @@ imports:
 parameters:
     locale: fr
     medias_directory: '%kernel.root_dir%/../web/uploads/medias'
+    media_files_directory: '%kernel.root_dir%/../web/uploads/medias/files'
 
 framework:
     #esi:             ~

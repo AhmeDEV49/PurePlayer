@@ -34,7 +34,7 @@ class Media
      * @ORM\Column(type="string")
      *
      * @Assert\NotBlank(message="Please, upload the product media as PNG/JPG/GIF file.")
-     * @Assert\File(mimeTypes = {"image/jpeg", "image/gif", "image/png"})
+     * @Assert\File(maxSize = "2048k",mimeTypes = {"image/jpeg", "image/gif", "image/png"})
      */
     private $path;
 
@@ -52,6 +52,30 @@ class Media
     public function setPath($path)
     {
         $this->path = $path;
+    }
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Please, upload the media MP4/AVI/MKV File OR MP3 !!")
+     * @Assert\File(maxSize = "25M",mimeTypes = {"video/mpeg", "video/mp4", "audio/mp3", "video/x-ms-wmv", "video/x-msvideo", "video/x-flv"})
+     */
+    private $file_path;
+
+    /**
+     * @return mixed
+     */
+    public function getFilePath()
+    {
+        return $this->file_path;
+    }
+
+    /**
+     * @param mixed $file_path
+     */
+    public function setFilePath($file_path)
+    {
+        $this->file_path = $file_path;
     }
 
     /**
@@ -146,10 +170,9 @@ class Media
      *
      * @return Media
      */
-    public function setCreateur(\MediaBundle\Entity\Personne $createur = null)
+    public function setCreateur(Personne $createur = null)
     {
         $this->createur = $createur;
-
         return $this;
     }
 
