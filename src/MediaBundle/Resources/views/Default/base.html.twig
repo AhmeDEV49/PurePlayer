@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.plyr.io/2.0.18/plyr.css">
     <link rel="stylesheet" href="{{ asset('css/application.css') }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} - PurePlayer{% endblock %}</title>
+    <title>{% if page_title is defined %} {{ page_title }} | {% endif %} PurePlayer</title>
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
@@ -24,17 +24,19 @@
         <ul class="nav navbar-nav">
             <li class="active"><a href="{{ path('root') }}"><i class="fa fa-home" aria-hidden="true" style="color:white;"></i>
                     Home</a></li>
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            <li><a href="{{ path('media_index') }}"><i class="fa fa-film" aria-hidden="true" style="color:white;"></i>
-                    Médias</a></li>
+            {% if is_granted("ROLE_USER") %}
+                <li><a href="{{ path('media_list') }}"><i class="fa fa-film" aria-hidden="true" style="color:white;"></i>
+                        Mes médias</a></li>
             {% endif %}
-            {% if is_granted('ROLE_ADMIN')  %}
-            <li><a href="{{ path('personne_index') }}"><i class="fa fa-users" aria-hidden="true" style="color:white;"></i>
-                    Personnes</a></li>
-            <li><a href="{{ path('typemedia_index') }}"><i class="fa fa-file-audio-o" aria-hidden="true" style="color:white;"></i>
-                    Type des médias</a></li>
-            <li><a href="{{ path('genre_index') }}"><i class="fa fa-tags" aria-hidden="true" style="color:white;"></i>
-                    Genres</a></li>
+            {% if is_granted("ROLE_ADMIN") %}
+                <li><a href="{{ path('media_index') }}"><i class="fa fa-film" aria-hidden="true" style="color:white;"></i>
+                        Médias</a></li>
+                <li><a href="{{ path('personne_index') }}"><i class="fa fa-users" aria-hidden="true" style="color:white;"></i>
+                        Personnes</a></li>
+                <li><a href="{{ path('typemedia_index') }}"><i class="fa fa-file-audio-o" aria-hidden="true" style="color:white;"></i>
+                        Type des médias</a></li>
+                <li><a href="{{ path('genre_index') }}"><i class="fa fa-tags" aria-hidden="true" style="color:white;"></i>
+                        Genres</a></li>
             {% endif %}
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <li style="color:white;"><a href="{{path('fos_user_profile_show')}}"><i class="fa fa-user"></i> Mon compte ({{  app.user.username|upper }}) </a></li>
@@ -44,10 +46,18 @@
             {%  else %}
                 <li><a href="{{ path('fos_user_security_login') }}"><i class="fa fa-sign-in" aria-hidden="true" style="color:white;"></i> Connexion</a></li>
             {% endif %}
-
         </ul>
     </div>
 </nav>
+{% if app.request.hasPreviousSession %}
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="alert alert-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
 <div class="container-fluid">
     {% block body %}{% endblock %}
 </div>

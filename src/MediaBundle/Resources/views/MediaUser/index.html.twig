@@ -1,0 +1,35 @@
+{%  extends "MediaBundle:Default:base.html.twig" %}
+{% set page_title = 'Mes médias' %}
+{% block body %}
+    <h1 align="center"><span class="glyphicon glyphicon-bullhorn
+" style="color:#f1c40f"></span> Liste des médias</h1>
+    <div class="row" align="center">  <a href="{{ path('media_new') }}" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+            Créer un nouveau media</a></div>
+    <hr>
+    {% for medium in media_list %}
+        <!-- Pour créer une nouvelle row tous les 3 articles -->
+        {% if loop.index is divisibleby(3) %}
+            <section class="row">
+        {% endif %}
+        <div class="col-xs-12 col-sm-12 col-md-4">
+            <div class="thumbnail">
+                <a href="{{ path('media_show', { 'id':medium.id}) }}">
+                    <img class="img-responsive" src="{{ asset('uploads/medias/' ~ medium.path) }}">
+                </a>
+                <div class="caption" align="center">
+                    <h4><span class="label label-success"> <a href="{{ path('media_show', {'id':medium.id}) }}">#{{ medium.id }}</a> {{ medium.name }}</span></h4>
+                    <h6>Extension : {{ medium.extension|upper }}</h6>
+                    <p>Genre : {{ medium.genre.name }}</p>
+                    <strong>Synopsis :</strong> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa eius ipsa odit provident qui! Illo iste iure minus nesciunt reprehenderit voluptatum? Accusantium assumenda earum magni nesciunt perspiciatis. Mollitia rem, sint.</p>
+                    <p><a href="{{ path('media_show', { 'id': medium.id }) }}" class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i>
+                            Afficher</a> <a href="{{ path('media_edit', { 'id': medium.id }) }}" class="btn btn-warning btn-xs"><i class="fa fa-pencil" aria-hidden="true"></i>
+                            Editer</a></p>
+                </div>
+            </div>
+        </div>
+        {% if loop.index is divisibleby(3) %}
+            </section>
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}

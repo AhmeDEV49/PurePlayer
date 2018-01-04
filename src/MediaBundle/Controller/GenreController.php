@@ -50,6 +50,10 @@ class GenreController extends Controller
             $em->persist($genre);
             $em->flush();
 
+            $request->getSession()
+                ->getFlashBag()
+                ->add('success', 'Le genre a bien été crée !')
+            ;
             return $this->redirectToRoute('genre_show', array('id' => $genre->getId()));
         }
 
